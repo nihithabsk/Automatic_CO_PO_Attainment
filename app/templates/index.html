@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO Attainment Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>CO Attainment Calculator</h1>
+        <form action="/calculate" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Select Workbook:</label>
+                <input type="file" id="file" name="file" accept=".xlsx" required>
+            </div>
+            <div class="form-group">
+                <label for="sheet_name">Sheet Name:</label>
+                <input type="text" id="sheet_name" name="sheet_name" placeholder="Enter sheet name" required>
+            </div>
+            <div class="form-group">
+                <label for="class_strength">Class Strength:</label>
+                <input type="number" id="class_strength" name="class_strength" placeholder="Enter class strength" required>
+            </div>
+            <div class="form-group">
+                <label for="co_mappings">CO Mappings:</label>
+                <textarea id="co_mappings" name="co_mappings" rows="4" cols="50" placeholder="Enter CO mappings (e.g., CO1:Q1,Q2;CO2:Q3,Q4)" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+            <a class="history-link" href="/history">View Historical Results</a>
+        </form>
+    </div>
+</body>
+</html>
+
