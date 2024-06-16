@@ -6,7 +6,6 @@
     <title>Calculation Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
-        
         body {
             background-color: #f8f9fa;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,7 +13,7 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: auto;
             padding: 30px;
             background-color: #fff;
@@ -28,23 +27,28 @@
             margin-bottom: 30px;
         }
 
-        .result-box {
+        table {
+            width: 100%;
+            border-collapse: collapse;
             margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f0f0f0;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .result-label {
-            font-size: 18px;
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
             font-weight: bold;
             color: #555;
-            margin-bottom: 5px;
         }
 
         .result-value {
-            font-size: 24px;
             color: #007bff;
         }
 
@@ -65,22 +69,32 @@
 <body>
     <div class="container">
         <h1>Calculation Result</h1>
-        <div class="result-box">
-            <p class="result-label">Average:</p>
-            <p class="result-value">{{ average }}</p>
-        </div>
-        <div class="result-box">
-            <p class="result-label">Attainment percentage CO wise:</p>
-            <p class="result-value">{{ avg_cos }}</p>
-        </div>
-        <div class="result-box">
-            <p class="result-label">Attainment Level CO wise:</p>
-            <p class="result-value">{{ avg_co_levels }}</p>
-        </div>
-        <div class="result-box">
-            <p class="result-label">Attainment Level:</p>
-            <p class="result-value">{{ level }}</p>
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Average</td>
+                    <td class="result-value">{{ average }}</td>
+                </tr>
+                <tr>
+                    <td>Attainment Percentage CO Wise</td>
+                    <td class="result-value">{{ avg_cos }}</td>
+                </tr>
+                <tr>
+                    <td>Attainment Level CO Wise</td>
+                    <td class="result-value">{{ avg_co_levels }}</td>
+                </tr>
+                <tr>
+                    <td>Attainment Level</td>
+                    <td class="result-value">{{ level }}</td>
+                </tr>
+            </tbody>
+        </table>
         <a class="back-link" href="/">Back to Home</a>
     </div>
 </body>

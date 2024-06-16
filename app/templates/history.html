@@ -1,33 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historical Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>Historical Calculation Results</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Average</th>
-                    <th>Attainment Level</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for result in results %}
-                    <tr>
-                        <td>{{ result.id }}</td>
-                        <td>{{ result.average }}</td>
-                        <td>{{ result.level }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <a class="back-link" href="/">Back to Home</a>
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}History{% endblock %}
+
+{% block content %}
+<h1>History</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Sheet name</th>
+            <th>Average</th>
+            <th>Attainment Level</th>
+            <th>Average COs</th>
+            <th>Average CO Levels</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for result in results %}
+            <tr>
+                <td>{{ result.id }}</td>
+                <td>{{ result.sheet_name }}</td>
+                <td>{{ result.average }}</td>
+                <td>{{ result.level }}</td>
+                <td>{{ result.avg_cos }}</td>
+                <td>{{ result.avg_co_levels }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('index') }}">Back to Home</a>
+{% endblock %}

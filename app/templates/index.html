@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CO Attainment Calculator</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .link-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .link-container a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .link-container a:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -24,12 +40,15 @@
             </div>
             <div class="form-group">
                 <label for="co_mappings">CO Mappings:</label>
-                <textarea id="co_mappings" name="co_mappings" rows="4" cols="50" placeholder="Enter CO mappings (e.g., CO1:Q1,Q2;CO2:Q3,Q4)" required></textarea>
+                <textarea id="co_mappings" name="co_mappings" rows="4" cols="50" placeholder="Enter CO mappings (e.g. CO1:Q1,Q2;CO2:Q3,Q4)" required></textarea>
             </div>
             <div class="form-group">
                 <button type="submit">Submit</button>
             </div>
-            <a class="history-link" href="/history">View Historical Results</a>
+            <div class="link-container">
+                <a href="/history">View Historical Results</a>
+                <a href="/average">Calculate Average</a>
+            </div>
         </form>
     </div>
 </body>

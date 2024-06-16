@@ -41,7 +41,6 @@ def cal(file_path, sheet_name, class_strength,co_mapping):
     questions = [q for questions in co_mapping.values() for q in questions]
     student_question_scores = student_rows.copy()
     
-    # Ensure 'Student' column is present before setting it as index
     if 'Student' not in student_question_scores.columns:
         student_question_scores['Student'] = student_rows['Parameters']
     student_question_scores.set_index('Student', inplace=True)
@@ -93,18 +92,19 @@ def cal(file_path, sheet_name, class_strength,co_mapping):
         percentage_above_threshold[co] = (count / class_strength) * 100
     
     avg = sum(percentage_above_threshold.values()) / len(percentage_above_threshold)
+    avg = round(avg,2)
     for co, percentage in avg_cos.items():
         avg_cos[co] = round(percentage, 2)
     avg_co_levels = {}
-    for co in avg_cos.keys():
-        if avg_cos[co] < 60:
+    for co in percentage_above_threshold.keys():
+        if percentage_above_threshold[co] < 60:
             avg_co_levels[co] = "Level 0"
-        elif 60 <= avg <= 70:
+        elif 60 <= percentage_above_threshold[co] <= 70:
             avg_co_levels[co] = "Level 1"
-        elif 70 < avg <= 80:
+        elif 70 < percentage_above_threshold[co] <= 80:
             avg_co_levels[co] = "Level 2"
         else:
-            avg_co_levels[co] = "Level 3"   
+            avg_co_levels[co] = "Level 3"  
     if avg < 60:
         ans = "Level 0"
     elif 60 <= avg <= 70:
@@ -112,6 +112,5 @@ def cal(file_path, sheet_name, class_strength,co_mapping):
     elif 70 < avg <= 80:
         ans = "Level 2"
     else:
-        ans = "Level 3"
-    
-    return avg, ans,avg_cos,avg_co_levels
+        ans = "Level 3"    
+    return avg, ans,avg_cos,avg_co_levels,sheet_name

@@ -1,8 +1,8 @@
-/* Global styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
     padding: 50px;
+    margin: 0;
 }
 
 .container {
@@ -16,9 +16,10 @@ body {
 
 h1 {
     text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
 }
 
-/* Form styles */
 .form-group {
     margin-bottom: 20px;
 }
@@ -29,13 +30,13 @@ label {
     font-weight: bold;
 }
 
-input, textarea {
-    width: calc(100% - 20px);
+input, textarea, select {
+    width: 100%;
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+    box-sizing: border-box;
 }
 
 textarea {
@@ -50,33 +51,27 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
 }
 
 button:hover {
     background-color: #0056b3;
 }
-/* Add these styles to your existing styles.css file */
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.link-container {
+    text-align: center;
     margin-top: 20px;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+.link-container a {
+    margin: 0 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-th {
-    background-color: #f2f2f2;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #f1f1f1;
+.link-container a:hover {
+    color: #0056b3;
 }
