@@ -1,0 +1,14 @@
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment directory
+venv/
+
+# Ignore instance and migration directories if you don't want to track them
+instance/
+migrations/
+
+# Ignore other sensitive or unnecessary files
+*.env
+*.log

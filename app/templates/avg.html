@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO Attainment Average Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>CO Attainment Average Calculator</h1>
+        <form action="/avgcal" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="mid1">Enter average of mid1:</label>
+                <input type="text" id="mid1" name="mid1" placeholder="Enter mid1 level" required>
+            </div>
+            <div class="form-group">
+                <label for="mid2">Enter average of mid2:</label>
+                <input type="text" id="mid2" name="mid2" placeholder="Enter mid2 level" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+            <a class="history-link" href="/history">View Historical Results</a>
+        </form>
+    </div>
+</body>
+</html>
